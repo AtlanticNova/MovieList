@@ -1,48 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
+@section('headline', 'Register')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Movie List</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-xl">
-        <a class="navbar-brand" href="/">MovieList</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body" >
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/movies">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/actors">Actors</a>
-                    </li>
-                </ul>
-                <button type="button" class="btn btn-primary me-3">Register</button>
-                <button type="button" class="btn btn-outline-primary">Login</button>
+@section('content')
+    <content>
+        <div class="container-fluid" style="background-color:black; min-width:100vh; max-width:100%;margin: 0 auto;padding:98px;">
+            <div class="container justify-content-center" style="max-width:700px">
+                <h4 style="color:white; text-align: center">Hello, Welcome to <span style="color: red">Movie</span>List</h1>
+                <form style="color: white; margin-top: 50px" method="POST" action="{{url('/register')}}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group mt-3">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control bg-dark text-white" id="username" name="username" placeholder="Enter your username" style="border: none;">
+                        @error('username')
+                            <small id="usernameHelp" class="form-text text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter your email" style="border: none;">
+                        @error('email')
+                            <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control bg-dark text-white" id="password" name="password" placeholder="Enter your password" style="border: none;">
+                        @error('password')
+                            <small id="passwordHelp" class="form-text text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" class="form-control bg-dark text-white" id="password" name="password_confirmation" placeholder="Enter your confirm password" style="border: none;">
+                      </div>
+                    <button type="submit" class="btn btn-md btn-block mt-4" style="background-color:red; width:100%;">Register &#10140;</button>
+                </form>
+                <div class="container text-center mt-1">
+                    <small style="color: white; text-align: center">Already have an account? <a style="color: red" href="url{{'/login'}}">Login Now!</a></small>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-<body>
-</body>
-
-</html>
+    </content>
+@endsection
