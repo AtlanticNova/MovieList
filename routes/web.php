@@ -19,6 +19,6 @@ Auth::routes();
 Route::get('/', function(){
     return view('home');
 });
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/actors', [Controller::class, 'viewActors']);
 Route::get('/movies', [Controller::class, 'viewMovies']);
