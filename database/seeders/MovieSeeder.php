@@ -22,7 +22,7 @@ class MovieSeeder extends Seeder
                 'director'=>'Jon Watts',
                 'releaseDate'=>'2017-07-07',
                 'imageThumbnail'=>'images/SpiderMan_Homecoming.jpg',
-                'background'=>'Spider-Man: Homecoming is a 2017 American superhero film based on the Marvel Comics character Spider-Man, co-produced by Columbia Pictures and Marvel Studios, and distributed by Sony Pictures Releasing.',
+                'background'=>'images/Spiderman_Homecoming_bg.jpg',
             ],
             [
                 'title'=>'Spider-Man: Far from Home',
@@ -31,7 +31,7 @@ class MovieSeeder extends Seeder
                 'director'=>'Jon Watts',
                 'releaseDate'=>'2019-06-03',
                 'imageThumbnail'=>'images/SpiderMan_FarfromHome.jpg',
-                'background'=>'Spider-Man: Far From Home is a 2019 American superhero film based on the Marvel Comics character Spider-Man, co-produced by Columbia Pictures and Marvel Studios, and distributed by Sony Pictures Releasing.',
+                'background'=>'images/Spiderman_FarfromHome_bg.jpg',
             ],
             [
                 'title'=>'Spider-Man: No Way Home',
@@ -40,7 +40,7 @@ class MovieSeeder extends Seeder
                 'director'=>'Jon Watts',
                 'releaseDate'=>'2021-12-13',
                 'imageThumbnail'=>'images/SpiderMan_NoWayHome.jpg',
-                'background'=>'Spider-Man: No Way Home is a 2021 American superhero film based on the Marvel Comics character Spider-Man, co-produced by Columbia Pictures and Marvel Studios and distributed by Sony Pictures Releasing.',
+                'background'=>'images/SpiderMan_NoWayHome_bg.jpg',
             ],
         ]);
     }
