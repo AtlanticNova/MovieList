@@ -23,15 +23,15 @@
                         @enderror
                     </div>
                     <div class="form-check mt-3">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="1" id="remember" name="rember">
+                        <label class="form-check-label" for="remember">
                           Remember me
                         </label>
                     </div>
                     <button type="submit" class="btn btn-md btn-block mt-4" style="background-color:red; width:100%;">Login &#10140;</button>
                 </form>
                 <div class="container text-center mt-1">
-                    <small style="color: white; text-align: center">Don't have an account? <a style="color: red" href="url{{'/register'}}">Register Now!</a></small>
+                    <small style="color: white; text-align: center">Don't have an account? <a style="color: red" href="/register">Register Now!</a></small>
                 </div>
             </div>
         </div>

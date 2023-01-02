@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body  style="height: 100%; margin: 0px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,21 +25,54 @@
                     <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body" >
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/movies">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/actors">Actors</a>
-                        </li>
-                    </ul>
-                    <a href="/register"><button type="button" class="btn btn-primary me-3">Register</button></a>
-                    <a href="/login"><button type="button" class="btn btn-outline-primary" href="/login">Login</button></a>
-                </div>
+                @guest
+                    <div class="offcanvas-body" >
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/movies">Movies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/actors">Actors</a>
+                            </li>
+                        </ul>
+                        <a href="/register"><button type="button" class="btn btn-primary me-3">Register</button></a>
+                        <a href="/login"><button type="button" class="btn btn-outline-primary" href="/login">Login</button></a>
+                    </div>
+                    @else
+                        <div class="offcanvas-body" >
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/movies">Movies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/actors">Actors</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/actors">My Watchlist</a>
+                                </li>
+                            </ul>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary btn-md dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->username }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                @endguest
             </div>
         </div>
     </nav>

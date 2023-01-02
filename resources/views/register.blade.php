@@ -36,7 +36,7 @@
                     <button type="submit" class="btn btn-md btn-block mt-4" style="background-color:red; width:100%;">Register &#10140;</button>
                 </form>
                 <div class="container text-center mt-1">
-                    <small style="color: white; text-align: center">Already have an account? <a style="color: red" href="url{{'/login'}}">Login Now!</a></small>
+                    <small style="color: white; text-align: center">Already have an account? <a style="color: red" href="/login">Login Now!</a></small>
                 </div>
             </div>
         </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,27 +15,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+Auth::routes();
+Route::get('/', function(){
     return view('home');
 });
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/actors', function () {
-    return view('actors');
-});
-
-Route::get('/movies', function () {
-    return view('movies');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/actors', [Controller::class, 'viewActors']);
+Route::get('/movies', [Controller::class, 'viewMovies']);
