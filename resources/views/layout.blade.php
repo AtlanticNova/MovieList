@@ -62,7 +62,7 @@
                 <li class="list-inline-item"><small> Terms Of Service |</small></li>
                 <li class="list-inline-item"><small> Contact Us |</small></li>
                 <li class="list-inline-item"><small> About Us</small></li>
-            </ul>
+              </ul>
             <small style="color: white">Copyright &copy; 2021 <span style="color: red">Movie</span>List All Rights Reserved</small>
         </div>
     </footer>
