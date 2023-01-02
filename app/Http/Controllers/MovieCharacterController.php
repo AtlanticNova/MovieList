@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\MovieCharacter;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class MovieCharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\MovieCharacter  $movieCharacter
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(MovieCharacter $movieCharacter)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\MovieCharacter  $movieCharacter
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(MovieCharacter $movieCharacter)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\MovieCharacter  $movieCharacter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, MovieCharacter $movieCharacter)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\MovieCharacter  $movieCharacter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(MovieCharacter $movieCharacter)
     {
         //
     }
