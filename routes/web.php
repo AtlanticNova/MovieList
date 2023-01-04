@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActorController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/genre/{id}', [GenreController::class, 'genreDetails']);
-Route::get('/actors', [Controller::class, 'viewActors']);
+Route::get('/actors', [ActorController::class, 'viewActors']);
+Route::get('/actors/{id}', [ActorController::class, 'viewDetailActor']);
 Route::get('/movies', [MovieController::class, 'viewMovies']);
 Route::get('/movies/{id}', [MovieController::class, 'movieDetails']);
 Route::get('/profile', [UserController::class, 'viewProfile']);

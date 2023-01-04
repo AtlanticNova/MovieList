@@ -11,10 +11,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function viewActors(){
-        return view('actors');
-    }
-
     public function viewMovies(){
         return view('movies');
     }

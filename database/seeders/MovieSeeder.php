@@ -119,14 +119,14 @@ class MovieSeeder extends Seeder
                 'imageThumbnail'=>'images/TheLuckyOne.jpg',
                 'background'=>'images/TheLuckyOne_bg.jpg'
             ],
-            [
-                'title'=>'',
-                'description'=>'',
-                'director'=>'',
-                'releaseDate'=>'',
-                'imageThumbnail'=>'images/.jpg',
-                'background'=>'images/.jpg'
-            ],
+            // [
+            //     'title'=>'',
+            //     'description'=>'',
+            //     'director'=>'',
+            //     'releaseDate'=>'',
+            //     'imageThumbnail'=>'images/.jpg',
+            //     'background'=>'images/.jpg'
+            // ],
         ]);
     }
 }
