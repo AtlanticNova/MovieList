@@ -10,11 +10,15 @@ class Movie extends Model
     use HasFactory;
     public $timestamps = false;
 
-    public function genres(){
+    public function movieGenres(){
         return $this->belongsToMany(MovieGenre::class, 'movie_genres');
     }
 
-    public function actors(){
+    public function movieCharacter(){
         return $this->belongsToMany(MovieCharacter::class, 'movie_characters');
+    }
+
+    public function watchlist(){
+        return $this->belongsTo(Watchlist::class, 'watchlists');
     }
 }
