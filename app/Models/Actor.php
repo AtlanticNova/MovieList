@@ -12,4 +12,7 @@ class Actor extends Model
     public function actors(){
         return $this->belongsToMany(MovieCharacters::class, 'movie_characters');
     }
+=======
+    public $timestamps = false;
+>>>>>>> Stashed changes
 }
