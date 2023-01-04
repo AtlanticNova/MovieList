@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Actor extends Model
+class MovieCharacters extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    
+
     public function actors(){
-        return $this->belongsToMany(MovieCharacters::class, 'movie_characters');
+        return $this->belongsTo(Actor::class, 'actors');
     }
 
     public function movies(){
-        return $this->belongsToMany(MovieCharacters::class, 'movie_characters');
+        return $this->belongsTo(Movie::class, 'movies');
     }
 }
