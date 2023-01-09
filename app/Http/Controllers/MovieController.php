@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -28,7 +29,7 @@ class MovieController extends Controller
                 ->join('genres', 'genres.id','=','movie_genres.genres_id')
                 ->where('movies.id',$id)
                 ->get(['genres.name']);
-        $movies = Movie::all()->random(3);
+        $movies = Movie::all()->random(5);
 
         return view('movieDetails',[
             'movie'=>$movie,

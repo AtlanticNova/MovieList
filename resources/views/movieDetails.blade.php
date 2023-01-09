@@ -5,7 +5,7 @@
     <content>
         <div class="text-white p-5" style="display: flex; flex-direction: column;justify-content: space-evenly;background-color:black">
             <div style="display: flex; flex-direction: row;justify-content: space-evenly;align: center">
-                <img src="{{asset('/'.$movie->imageThumbnail)}}" alt="" style="max-width: 300px">
+                <img src="{{asset('/'.$movie->imageThumbnail)}}" alt="" style="max-width: 300px; margin-right: 20px ">
                 <div style="display: flex; flex-direction: column;justify-content: space-evenly;align: center">
                     <h1>{{$movie->title}}</h3>
                     <div>
@@ -32,7 +32,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{$movieActor->actor_name}}</h5>
                                     <p class="card-text">{{$movieActor->characterName}}</p>
-                                    <a href="/actors" class="stretched-link"></a>
+                                    <a href="/actors/{{$movieActor->id}}" class="stretched-link"></a>
                                 </div>
                             </div>
                     @endforeach
