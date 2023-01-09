@@ -10,14 +10,14 @@
                     @csrf
                     <div class="form-group mt-3">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control bg-dark text-white" id="username" name="username" placeholder="Enter your username" style="border: none;">
+                        <input type="text" class="form-control bg-dark text-white" id="username" name="username" placeholder="Enter your username" style="border: none;" value="{{ old('username') }}">
                         @error('username')
                             <small id="usernameHelp" class="form-text text-danger">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group mt-3">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter your email" style="border: none;">
+                        <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter your email" style="border: none;" value="{{ old('email') }}">
                         @error('email')
                             <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
                         @enderror
