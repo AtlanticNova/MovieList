@@ -26,7 +26,7 @@ class WatchlistController extends Controller
                         ->where('users_id',$id)
                         ->paginate(5);
         }
-        return view('watchlist',[
+        return view('user.watchlist',[
             'watchlist' => $watchlist
         ]);
     }

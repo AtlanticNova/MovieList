@@ -21,7 +21,7 @@ class ActorController extends Controller
         $actorsData = Actor::where('id',$id)->first();
         $movie = Actor::join('movie_characters', 'movie_characters.actors_id', '=', 'actors.id')
         ->join('movies', 'movies.id', '=', 'movie_characters.movies_id')
-        ->distinct()
+        ->where('actors.id',$id)
         ->get(['movies.imageThumbnail', 'movies.title', 'movies.id']);
 
         return view( 'actorDetail', [

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('DOB')->nullable();
             $table->string('phone')->nullable();
+            $table->string('role')->default('user');
             $table->string('imageURL')->nullable();
             $table->timestamp('joinedDate')->useCurrent();
             $table->rememberToken();

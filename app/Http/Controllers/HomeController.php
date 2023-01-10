@@ -62,7 +62,7 @@ class HomeController extends Controller
         //     $movies = DB::table('movies')->paginate(7);
         // }
 
-        return view('home',[
+        return view('user.home',[
             'hero' => $hero,
             'genre' => $genre,
             'popular' => $popular,

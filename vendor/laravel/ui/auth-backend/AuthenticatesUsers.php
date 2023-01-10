@@ -135,7 +135,7 @@ trait AuthenticatesUsers
      */
     protected function sendLoginResponse(Request $request)
     {
-        $rememberTokenExpireMinutes = 1;
+        $rememberTokenExpireMinutes = 120;
         $rememberTokenName = Auth::getRecallerName();
 
         Cookie::queue($rememberTokenName, Cookie::get($rememberTokenName), $rememberTokenExpireMinutes);
