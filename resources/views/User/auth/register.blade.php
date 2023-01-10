@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user.layout')
 @section('headline', 'Register')
 
 @section('content')
@@ -6,7 +6,7 @@
         <div class="container-fluid" style="background-color:black; min-width:100vh; max-width:100%;margin: 0 auto;padding:98px;">
             <div class="container justify-content-center" style="max-width:700px">
                 <h4 style="color:white; text-align: center">Hello, Welcome to <span style="color: red">Movie</span>List</h1>
-                <form style="color: white; margin-top: 50px" method="POST" action="{{url('/register')}}" enctype="multipart/form-data">
+                <form style="color: white; margin-top: 50px" method="POST" action="/register" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mt-3">
                         <label for="username">Username</label>

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user.layout')
 @section('headline', 'Home')
 
 @section('content')
@@ -112,7 +112,7 @@
                                         <h5> {{$hero->name}} | {{$hero->releaseDate}} </h5>
                                         <h2>{{$hero->title}}</h2>
                                         <h5>{{$hero->description}}</h5>
-                                        <button>Add To Watchlist</button>
+                                        <button class="btn btn-light">Add To Watchlist</button>
                                     </div>
                                 </div>
                             @endforeach

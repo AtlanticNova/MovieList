@@ -14,7 +14,7 @@ class GenreController extends Controller
         ->where('genres.id', $id)
         ->get (['movies.imageThumbnail', 'movies.title', 'movies.releaseDate', 'movies.id']);
 
-        return view('genreDetail',[
+        return view('user.genreDetail',[
             'genre' => $genreName,
             'selectedGenre' => $selectedGenre
         ]);

@@ -12,7 +12,7 @@ class ActorController extends Controller
         ->join('movies', 'movies.id', '=', 'movie_characters.movies_id')
         ->get(['actors.imageURL', 'actors.name','movies.title AS title']);
         $actorsData = Actor::all();
-        return view('actors',[
+        return view('user.actors',[
             'actorsData' => $actorsData
         ]);
     }
@@ -24,7 +24,7 @@ class ActorController extends Controller
         ->where('actors.id',$id)
         ->get(['movies.imageThumbnail', 'movies.title', 'movies.id']);
 
-        return view( 'actorDetail', [
+        return view( 'user.actorDetail', [
             'actorData' => $actorsData,
             'movie' => $movie
         ]);

@@ -13,7 +13,7 @@ class MovieController extends Controller
         $movies = Movie::all();
         $genre = Genre::all();
 
-        return view('movies',[
+        return view('user.movies',[
             'movies' => $movies,
             'genre' => $genre
         ]);
@@ -31,7 +31,7 @@ class MovieController extends Controller
                 ->get(['genres.name']);
         $movies = Movie::all()->random(5);
 
-        return view('movieDetails',[
+        return view('user.movieDetails',[
             'movie'=>$movie,
             'movieActor' => $movieActor,
             'movies' => $movies,

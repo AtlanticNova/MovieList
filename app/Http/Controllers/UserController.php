@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function viewProfile(){
-        return view('profile');
+        return view('user.profile');
     }
 
     public function updateProfile(Request $request, $id){

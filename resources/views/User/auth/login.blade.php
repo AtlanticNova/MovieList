@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user.layout')
 @section('headline', 'Login')
 
 @section('content')
@@ -6,7 +6,7 @@
         <div class="container-fluid" style="background-color:black; min-width:100vh; max-width:100%;padding:70px; height:100%;">
             <div class="container justify-content-center" style="max-width:700px; height: 53.4vh; display: flex; flex-direction: column;justify-content: center; align-content: center">
                 <h4 style="color:white; text-align: center">Hello, Welcome to <span style="color: red">Movie</span>List</h1>
-                <form style="color: white; margin-top: 50px" method="POST" action="{{url('/login')}}">
+                <form style="color: white; margin-top: 50px" method="POST" action="/login">
                     @csrf
                     <div class="form-group mt-3">
                         <label for="email">Email</label>
