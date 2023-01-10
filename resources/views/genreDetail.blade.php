@@ -11,7 +11,7 @@
             @guest
                 @foreach ( $selectedGenre as $sg)
                     <div class="card bg-dark text-white" style="width: 15rem;margin-left: 20px;">
-                        <img src="{{asset('/'.$sg->imageThumbnail)}}" alt="" style="max-height: 300px">
+                        <img src="{{asset('images/'.$sg->imageThumbnail)}}" alt="" style="max-height: 300px">
                         <div class="card-body">
                             <h5 class="card-title">{{$sg->title}}</h5>
                             <p class="card-text">{{$sg->releaseDate}}</p>
@@ -22,7 +22,7 @@
                 @else
                     @foreach ( $selectedGenre as $sg)
                         <div class="card bg-dark text-white" style="width: 15rem;margin-left: 20px;">
-                            <img src="{{asset('/'.$sg->imageThumbnail)}}" alt="" style="max-height: 300px">
+                            <img src="{{asset('images/'.$sg->imageThumbnail)}}" alt="" style="max-height: 300px">
                             <div class="card-body">
                                 <h5 class="card-title">{{$sg->title}}</h5>
                                 <p class="card-text">{{$sg->releaseDate}}</p>

@@ -5,7 +5,7 @@
     <content>
         <div class="text-white p-5" style="display: flex; flex-direction: column;justify-content: space-evenly;background-color:black">
             <div style="display: flex; flex-direction: row;justify-content: space-evenly;align: center">
-                <img src="{{asset('/'.$movie->imageThumbnail)}}" alt="" style="max-width: 300px; margin-right: 20px ">
+                <img src="{{asset('images/'.$movie->imageThumbnail)}}" alt="" style="max-width: 300px; margin-right: 20px ">
                 <div style="display: flex; flex-direction: column;justify-content: space-evenly;align: center">
                     <h1>{{$movie->title}}</h3>
                     <div>
@@ -28,7 +28,7 @@
                 <div style="display: flex; flex-direction: row; margin-top: 20px">
                     @foreach ($movieActor as $movieActor)
                             <div class="card bg-dark text-white" style="width: 15rem;margin-left: 20px;">
-                                <img src="{{asset('/'.$movieActor->imageURL)}}" alt="" style="max-height: 300px">
+                                <img src="{{asset('images/'.$movieActor->imageURL)}}" alt="" style="max-height: 300px">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$movieActor->actor_name}}</h5>
                                     <p class="card-text">{{$movieActor->characterName}}</p>
@@ -43,7 +43,7 @@
                 <div style="display: flex; flex-direction: row; margin-top: 20px">
                     @foreach ($movies as $movies)
                         <div class="card bg-dark text-white" style="width: 15rem;margin-left: 20px;">
-                            <img src="{{asset('/'.$movies->imageThumbnail)}}" alt="" style="max-height: 300px">
+                            <img src="{{asset('images/'.$movies->imageThumbnail)}}" alt="" style="max-height: 300px">
                             <div class="card-body">
                                 <h5 class="card-title">{{$movies->title}}</h5>
                                 <p class="card-text">{{$movies->releaseDate}}</p>

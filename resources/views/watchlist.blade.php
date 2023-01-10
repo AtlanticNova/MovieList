@@ -21,7 +21,7 @@
                     </tr>
                     @foreach ($watchlist as $w)
                     <tr class="table-dark">
-                        <td class="table-dark"><img src="{{asset('/'.$w->imageThumbnail)}}" alt="" style="max-width: 100px"></td>
+                        <td class="table-dark"><img src="{{asset('images/'.$w->imageThumbnail)}}" alt="" style="max-width: 100px"></td>
                         <td class="table-dark">{{$w->title}}</td>
                         <td class="table-dark">{{$w->status}}</td>
                         <td class="table-dark">

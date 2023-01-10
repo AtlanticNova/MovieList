@@ -13,7 +13,7 @@
             @guest
                 @foreach ( $movies as $movies)
                     <div class="card bg-dark text-white mb-2" style="width: 15rem;margin-left: 20px;">
-                        <img src="{{asset('/'.$movies->imageThumbnail)}}" alt="" style="max-height: 300px">
+                        <img src="{{asset('images/'.$movies->imageThumbnail)}}" alt="" style="max-height: 300px">
                         <div class="card-body">
                             <h5 class="card-title">{{$movies->title}}</h5>
                             <p class="card-text">{{$movies->releaseDate}}</p>
@@ -24,7 +24,7 @@
                 @else
                     @foreach ( $movies as $movie)
                         <div class="card bg-dark text-white" style="width: 15rem;margin-left: 20px;">
-                            <img src="{{asset('/'.$movie->imageThumbnail)}}" alt="" style="max-height: 300px">
+                            <img src="{{asset('images/'.$movie->imageThumbnail)}}" alt="" style="max-height: 300px">
                             <div class="card-body">
                                 <p class="card-text" style="transform: rotate(0);">
                                     <h5 class="card-title">{{$movie->title}}</h5>

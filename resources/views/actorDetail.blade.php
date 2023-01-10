@@ -4,7 +4,7 @@
 @section('content')
     <div class="text-white" style="padding:51.5px; background-color:black;display: flex; flex-direction: row; justify-content: center;">
         <div>
-            <img src="{{asset('/'.$actorData->imageURL)}}" alt="" style="max-width: 250px; margin-right: 20px">
+            <img src="{{asset('images/'.$actorData->imageURL)}}" alt="" style="max-width: 250px; margin-right: 20px">
             <div class="pt-3">
                 <h4 class="pb-4">Personal Info</h4>
                 <h6>Popularity</h6>
@@ -28,7 +28,7 @@
                 <div style="display: flex; flex-direction: row; margin-top: 20px">
                     @foreach ($movie as $m)
                         <div class="card bg-dark text-white" style="width: 15rem;margin-left: 20px;">
-                            <img src="{{asset('/'.$m->imageThumbnail)}}" alt="" style="max-height: 300px">
+                            <img src="{{asset('images/'.$m->imageThumbnail)}}" alt="" style="max-height: 300px">
                             <div class="card-body">
                                 <h5 class="card-title">{{$m->title}}</h5>
                                 <a href="/movies/{{$m->id}}" class="stretched-link"></a>

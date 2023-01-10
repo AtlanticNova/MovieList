@@ -13,7 +13,7 @@
                     <div class="carousel-inner text-white">
                         @foreach ($hero as $hero)
                             <div class="carousel-item active" style="max-height: 600px">
-                                <img src="{{ asset('/'.$hero->background)}}" class="d-block w-100" alt="...">
+                                <img src="{{ asset('images/'.$hero->background)}}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption text-white">
                                     <h5> {{$hero->name}} | {{$hero->releaseDate}} </h5>
                                     <h2>{{$hero->title}}</h2>
@@ -36,7 +36,7 @@
                     <div class="row row-cols-1 row-cols-md-4 g-1" style="display: flex; flex-direction: row; margin-top: 20px">
                         @foreach ($popular as $p)
                             <div class="card bg-dark text-white mb-2" style="width: 15rem;margin-left: 20px;">
-                                <img src="{{asset('/'.$p->imageThumbnail)}}" alt="" style="max-height: 300px">
+                                <img src="{{asset('images/'.$p->imageThumbnail)}}" alt="" style="max-height: 300px">
                                 <div class="card-body">
                                     <p class="card-text" style="transform: rotate(0);">
                                         <h5 class="card-title">{{$p->title}}</h5>
@@ -84,7 +84,7 @@
                     <div class="row row-cols-1 row-cols-md-4 g-1" style="display: flex; flex-direction: row; margin-top: 20px" style="display: flex; flex-direction: row; margin-top: 20px">
                         @foreach ($movies as $movie)
                             <div class="card bg-dark text-white mb-2" style="width: 15rem;margin-left: 20px;">
-                                <img src="{{asset('/'.$movie->imageThumbnail)}}" alt="" style="max-height: 300px">
+                                <img src="{{asset('images/'.$movie->imageThumbnail)}}" alt="" style="max-height: 300px">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$movie->title}}</h5>
                                     <p class="card-text">{{$movie->releaseDate}}</p>
@@ -107,7 +107,7 @@
                         <div class="carousel-inner text-white">
                             @foreach ($hero as $hero)
                                 <div class="carousel-item active" style="max-height: 600px">
-                                    <img src="{{ asset('/'.$hero->background)}}" class="d-block w-100" alt="...">
+                                    <img src="{{ asset('images/'.$hero->background)}}" class="d-block w-100" alt="...">
                                     <div class="carousel-caption text-white">
                                         <h5> {{$hero->name}} | {{$hero->releaseDate}} </h5>
                                         <h2>{{$hero->title}}</h2>
@@ -131,7 +131,7 @@
                         <div class="row row-cols-1 row-cols-md-4 g-1" style="display: flex; flex-direction: row; margin-top: 20px">
                             @foreach ($popular as $p)
                                 <div class="card bg-dark text-white mb-2" style="width: 15rem;margin-left: 20px;">
-                                    <img src="{{asset('/'.$p->imageThumbnail)}}" alt="" style="max-height: 300px">
+                                    <img src="{{asset('images/'.$p->imageThumbnail)}}" alt="" style="max-height: 300px">
                                     <div class="card-body">
                                         <p class="card-text" style="transform: rotate(0);">
                                             <h5 class="card-title">{{$p->title}}</h5>
@@ -182,7 +182,7 @@
                         <div class="row row-cols-1 row-cols-md-4 g-1" style="display: flex; flex-direction: row; margin-top: 20px">
                             @foreach ($movies as $movie)
                                 <div class="card bg-dark text-white mb-2" style="width: 15rem;margin-left: 20px;">
-                                    <img src="{{asset('/'.$movie->imageThumbnail)}}" alt="" style="max-height: 300px">
+                                    <img src="{{asset('images/'.$movie->imageThumbnail)}}" alt="" style="max-height: 300px">
                                     <div class="card-body">
                                         <p class="card-text" style="transform: rotate(0);">
                                             <h5 class="card-title">{{$movie->title}}</h5>
