@@ -30,6 +30,7 @@ Route::get('/movies', [MovieController::class, 'viewMovies']);
 Route::get('/movies/{id}', [MovieController::class, 'movieDetails']);
 Route::get('/profile', [UserController::class, 'viewProfile']);
 Route::post('/profile/{id}', [UserController::class, 'updateProfile']);
+Route::post('/profile/{id}', [UserController::class, 'store']);
 Route::get('/watchlist/{id}', [WatchlistController::class, 'viewWatchlist']);
 Route::get('/watchlists/{id}', [WatchlistController::class, 'addToWatchList']);
 Route::post('/watchlists/update/{id}', [WatchlistController::class, 'updateStatus']);

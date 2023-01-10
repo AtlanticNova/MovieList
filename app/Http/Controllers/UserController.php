@@ -34,4 +34,23 @@ class UserController extends Controller
             'success' => 'Post has been updated successfully'
         ]);;
     }
+
+    public function store(Request $request, $id){
+        $this->validate($request, [
+            'imageURL' => 'required|image|mimes:jpg'
+        ]);
+
+        $update = DB::table('users')->where('id', '=', $id)
+        ->update([
+            'imageURL' => $request->imageURL->getClientOriginalName(),
+        ]);
+
+        $path = 'images';
+        $image = $request->imageURL->getClientOriginalName();
+        $request->imageURL->move(public_path($path), $image);
+
+        return redirect('/profile')->with([
+            'success' => 'Photo has been updated successfully'
+        ]);
+    }
 }
