@@ -16,34 +16,48 @@ class GenreSeeder extends Seeder
     {
         DB::table('genres')->insert([
             [
+                //1
                 'name'=>'Action'
             ],
             [
+                //2
                 'name'=>'Adventure'
             ],
             [
+                //3
                 'name'=>'Horror'
             ],
             [
+                //4
                 'name'=>'Drama'
             ],
             [
+                //5
                 'name'=>'Thriller'
             ],
             [
-                'name'=>'Comedy'
+                //6
+                'name'=>'Melodrama'
             ],
             [
-                'name'=>'Science fiction'
+                //7
+                'name'=>'Romance'
             ],
             [
+                //8
                 'name'=>'Documentary'
             ],
             [
+                //9
                 'name'=>'Fantasy'
             ],
             [
-                'name'=>'Animation'
+                //10
+                'name'=>'Mystery'
+            ],
+            [
+                //11
+                'name'=>'Crime'
             ],
         ]);
     }

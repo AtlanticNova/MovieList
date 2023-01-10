@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 'password'=>bcrypt('ahmad123'),
                 'DOB'=>'2000-08-02',
                 'phone'=>'081319868735',
-                'imageURL'=>'images/Ahmad_Dani.jpg'
+                'imageURL'=>'Ahmad_Dani.jpg'
             ],
             [
                 'username'=>'Budianto13',
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 'password'=>bcrypt('budi123'),
                 'DOB'=>'1996-06-08',
                 'phone'=>'081387668786',
-                'imageURL'=>'images/Budianto.jpg',
+                'imageURL'=>'Budianto.jpg',
             ],
             [
                 'username'=>'PeterMarkus',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
                 'password'=>bcrypt('peter123'),
                 'DOB'=>'1992-09-14',
                 'phone'=>'081219876495',
-                'imageURL'=>'images/Peter_Markus.jpg'
+                'imageURL'=>'Peter_Markus.jpg'
             ]
         ]);
     }
