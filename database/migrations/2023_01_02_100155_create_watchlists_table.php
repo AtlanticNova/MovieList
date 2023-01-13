@@ -19,7 +19,8 @@ class CreateWatchlistsTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->unsignedBigInteger('movies_id');
             $table->foreign('movies_id')->references('id')->on('movies');
-            $table->string('status')->default('Planning');
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 

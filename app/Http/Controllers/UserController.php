@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genre;
-use App\Models\Movie;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use File;
+use PHPUnit\Framework\Constraint\FileExists;
+
+use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
 
     public function updateProfile(Request $request, $id){
         $this->validate($request, [
-            'username' => 'required|string|max:255|min:5|unique:users',
+            'username' => 'required|string|max:255|min:5',
             'email' => 'required|string|max:255|min:5',
             'DOB' => 'required',
             'phone' => 'required|numeric'
@@ -35,9 +36,9 @@ class UserController extends Controller
         ]);;
     }
 
-    public function store(Request $request, $id){
+    public function uploadPhoto(Request $request, $id){
         $this->validate($request, [
-            'imageURL' => 'required|image|mimes:jpg'
+            'imageURL' => 'required|image|mimes:png,jpg'
         ]);
 
         $update = DB::table('users')->where('id', '=', $id)
@@ -51,6 +52,16 @@ class UserController extends Controller
 
         return redirect('/profile')->with([
             'success' => 'Photo has been updated successfully'
+        ]);
+    }
+
+    public function deletePhoto(Request $request, $id){
+        $delete = DB::table('users')
+        ->where('id', '=', $id)
+        ->update(['imageURL'=>NULL]);
+
+        return redirect('/profile')->with([
+            'success' => 'Photo has been deleted'
         ]);
     }
 }

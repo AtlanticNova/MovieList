@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Auth::routes();
+Auth::routes();
 Route::get('/', [HomeController::class, 'render']);
 
 //LOGIN USER
@@ -49,13 +49,14 @@ Route::get('/movies/{id}', [MovieController::class, 'movieDetails']);
 //PROFILE
 Route::get('/profile', [UserController::class, 'viewProfile']);
 Route::post('/profile/{id}', [UserController::class, 'updateProfile']);
-Route::post('/profile/{id}', [UserController::class, 'store']);
+Route::post('/profile/upload/{id}', [UserController::class, 'uploadPhoto']);
+Route::get('/profile/delete/{id}', [UserController::class, 'deletePhoto']);
 
 //WATCHLIST
-Route::get('/watchlist/{id}', [WatchlistController::class, 'viewWatchlist']);
-Route::get('/watchlists/{id}', [WatchlistController::class, 'addToWatchList']);
-Route::post('/watchlists/update/{id}', [WatchlistController::class, 'updateStatus']);
 Route::get('/movie/{id}', [WatchlistController::class, 'addToWatchList']);
+Route::get('/watchlists/{id}', [WatchlistController::class, 'addToWatchList']);
+Route::get('/watchlists/update/{id}', [WatchlistController::class, 'updateStatus']);
+Route::get('/watchlist/{id}', [WatchlistController::class, 'viewWatchlist']);
 
 //ADMIN
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {

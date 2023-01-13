@@ -4,7 +4,7 @@
 @section('content')
     <div class="container-fluid text-white gx-0" style="background-color:black;">
             @guest
-                <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel carousel-white slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -15,7 +15,7 @@
                             <div class="carousel-item active" style="max-height: 600px">
                                 <img src="{{ asset('images/'.$hero->background)}}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption text-white">
-                                    <h5> {{$hero->name}} | {{$hero->releaseDate}} </h5>
+                                    <h5>{{$hero->name}} | {{$hero->releaseDate}}</h5>
                                     <h2>{{$hero->title}}</h2>
                                     <h5>{{$hero->description}}</h5>
                                 </div>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 @else
-                    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel carousel-white slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -107,9 +107,9 @@
                         <div class="carousel-inner text-white">
                             @foreach ($hero as $hero)
                                 <div class="carousel-item active" style="max-height: 600px">
-                                    <img src="{{ asset('images/'.$hero->background)}}" class="d-block w-100" alt="...">
-                                    <div class="carousel-caption text-white">
-                                        <h5> {{$hero->name}} | {{$hero->releaseDate}} </h5>
+                                    <img src="{{ asset('images/'.$hero->background)}}" class="d-block w-100 bg-dark-subtle" style="--bs-bg-opacity: .5;" alt="...">
+                                    <div class="carousel-caption text-white bg-dark-subtle">
+                                        <h5>{{$hero->name}} | {{$hero->releaseDate}}</h5>
                                         <h2>{{$hero->title}}</h2>
                                         <h5>{{$hero->description}}</h5>
                                         <button class="btn btn-light">Add To Watchlist</button>
