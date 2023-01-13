@@ -168,14 +168,15 @@
                                 <h6 class="ml-3" style="padding-left: 10px">Sort By</h6>
                             </div>
                             <div class="pl-3">
-                                <form action="" method="POST">
+                                <form action="/" method="GET" class="d-flex">
                                     @csrf
-                                    <select name="sorting" class="form-select" aria-label="Default select example" style="max-width:170px" wire:model="sorting">
+                                    <select name="sorting" class="form-select" aria-label="Default select example" style="max-width:170px">
                                         <option value="default" selected>Default</option>
                                         <option value="latest">Latest</option>
                                         <option value="asc">A-Z</option>
                                         <option value="desc">Z-A</option>
                                     </select>
+                                    <button class="btn btn-dark" type="submit">Sort</button>
                                 </form>
                             </div>
                         </div>

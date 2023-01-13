@@ -52,15 +52,29 @@ class HomeController extends Controller
             $movies = DB::table('movies')->paginate(7);
         }
 
-        // if($this->sorting == 'latest'){
-        //     $movies = DB::table('movies')->orderByDesc('releaseDate')->paginate(7);
-        // }else if($this->sorting == 'asc'){
-        //     $movies = DB::table('movies')->orderBy('title', 'asc')->paginate(7);
-        // }else if($this->sorting == 'desc'){
-        //     $movies = DB::table('movies')->orderByDesc('title')->paginate(7);
-        // }else{
-        //     $movies = DB::table('movies')->paginate(7);
-        // }
+        $sort = $request->sorting;
+
+        if($sort == 'latest'){
+            $movies = DB::table('movies')->orderByDesc('releaseDate')->paginate(7);
+        }else if($sort == 'asc'){
+            $movies = DB::table('movies')->orderBy('title', 'asc')->paginate(7);
+        }else if($sort == 'desc'){
+            $movies = DB::table('movies')->orderByDesc('title')->paginate(7);
+        }else{
+            $movies = DB::table('movies')->paginate(7);
+        }
+        // $movies = Movie::query();
+        // $movies->when($request->sort, function($query) use ($request){
+        //     if($request->sort == 'latest'){
+        //         $query->orderByDesc('releaseDate')->paginate(7);
+        //     }else if($request->sort == 'asc'){
+        //         $query->orderBy('title', 'asc')->paginate(7);
+        //     }else if($request->sort == 'desc'){
+        //         $query->orderByDesc('title')->paginate(7);
+        //     }else{
+        //         $query->paginate(7);
+        //     }
+        // });
 
         return view('user.home',[
             'hero' => $hero,
