@@ -191,7 +191,33 @@
                                             <a href="/movies/{{$movie->id}}" class=" text-white stretched-link"></a>
                                         </p>
                                         <p>
-                                            <a href="/watchlists/{{$movie->id}}" class="btn btn-primary stretched-link" style="position: relative;">Add to Watchlist</a>
+                                            @php
+                                                $flag = 0;
+                                            @endphp
+                                            @foreach ($watchlist as $w)
+                                                @if ($w->movies_id == $movie->id)
+                                                    <a href="/watchlists/{{$movie->id}}">
+                                                        <button class="btn btn-success stretched-link" disabled style="position: relative;">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                                            </svg>Already on Watchlist
+                                                        </button>
+                                                    </a>
+                                                    @php
+                                                        $flag=1;
+                                                    @endphp
+                                                    @break
+                                                @endif
+                                            @endforeach
+                                            @if ($flag == 0)
+                                                <a href="/watchlists/{{$movie->id}}">
+                                                    <button class="btn btn-primary stretched-link" style="position: relative;">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                                          </svg>Add to Watchlist
+                                                    </button>
+                                                </a>
+                                            @endif
                                         </p>
                                     </div>
                                 </div>

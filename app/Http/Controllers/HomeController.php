@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\MovieGenre;
+use App\Models\Watchlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -45,6 +46,8 @@ class HomeController extends Controller
                     ->groupBy('movies.title','movies.releaseDate','movies.imageThumbnail', 'movies.id')
                     ->limit(7)
                     ->get();
+        $watchlist = Watchlist::all();
+
         $search = $request->search;
         if($search != ""){
             $movies = Movie::where('title','LIKE',"%{$search}%")->paginate(7);
@@ -63,24 +66,13 @@ class HomeController extends Controller
         }else{
             $movies = DB::table('movies')->paginate(7);
         }
-        // $movies = Movie::query();
-        // $movies->when($request->sort, function($query) use ($request){
-        //     if($request->sort == 'latest'){
-        //         $query->orderByDesc('releaseDate')->paginate(7);
-        //     }else if($request->sort == 'asc'){
-        //         $query->orderBy('title', 'asc')->paginate(7);
-        //     }else if($request->sort == 'desc'){
-        //         $query->orderByDesc('title')->paginate(7);
-        //     }else{
-        //         $query->paginate(7);
-        //     }
-        // });
 
         return view('user.home',[
             'hero' => $hero,
             'genre' => $genre,
             'popular' => $popular,
-            'movies' => $movies
+            'movies' => $movies,
+            'watchlist'=>$watchlist
         ]);
     }
 }

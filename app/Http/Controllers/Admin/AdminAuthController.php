@@ -44,17 +44,18 @@ class AdminAuthController extends Controller
 
     // Show Actors
     public function viewActors(Request $request){
+        $actors = Actor::join('movie_characters', 'movie_characters.actors_id', '=', 'actors.id')
+        ->join('movies', 'movies.id', '=', 'movie_characters.movies_id')
+        ->get(['actors.imageURL', 'actors.name','movies.title AS title','actors.id']);
         $search = $request->search;
         if($search != ""){
             $actorsData = Actor::where('name','LIKE',"%{$search}%")->paginate(7);
         }else{
-            // $actorsData = Actor::join('movie_characters', 'movie_characters.actors_id', '=', 'actors.id')
-            // ->join('movies', 'movies.id', '=', 'movie_characters.movies_id')
-            // ->get(['actors.imageURL', 'actors.name','movies.title AS title','actors.id']);
             $actorsData = Actor::all();
         }
         return view('admin.actors',[
-            'actorsData' => $actorsData
+            'actorsData' => $actorsData,
+            'actors'=>$actors
         ]);
     }
 

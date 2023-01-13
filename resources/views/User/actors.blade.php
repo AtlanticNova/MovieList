@@ -19,7 +19,12 @@
                         <img src="{{ asset('images/' . $actorsData->imageURL) }}" alt="" style="max-height: 300px">
                         <div class="card-body">
                             <h5 class="card-title">{{ $actorsData->name }}</h5>
-                            <p class="card-text">{{$actorsData->title}}</p>
+                            @foreach ($actors as $a)
+                                @if ($actorsData->id == $a->id)
+                                    <p class="card-text" style="color: grey">{{$a->title}}</p>
+                                    @break;
+                                @endif
+                            @endforeach
                             <a href="/actors/{{$actorsData->id}}" class="stretched-link"></a>
                         </div>
                     </div>
