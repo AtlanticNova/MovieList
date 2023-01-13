@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="modal fade modal" id="modal-update-{{$w->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade modal" id="modal-update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -65,7 +65,7 @@
                 </div>
               </div>
             </div>
-        </div> --}}
+        </div>
     </content>
     {{-- <script>
         $('.addAttr').click(function() {

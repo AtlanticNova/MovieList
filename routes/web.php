@@ -68,7 +68,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('/movies', [AdminAuthController::class, 'viewMovies']);
         Route::get('/movies/{id}', [AdminAuthController::class, 'movieDetails']);
         // ADD MOVIE
-        Route::get('/movies/addMovie', [AdminAuthController::class, 'showAddMovie']);
+        Route::get('/addMovie', [AdminAuthController::class, 'showAddMovie']);
         Route::post('/movies/addMovie', [AdminAuthController::class, 'addMovie']);
+        // REMOVE MOVIE
+        Route::get('/remove/{id}', [AdminAuthController::class, 'deleteMovie']);
+        // EDIT MOVIE
+        Route::get('/edit/{id}', [AdminAuthController::class, 'showEditMovie']);
+        Route::post('/movies/edit/{id}', [AdminAuthController::class, 'editMovie']);
+        // ADD ACTOR
+        Route::get('/actor/add', [AdminAuthController::class, 'showAddActor']);
+        Route::post('/actors/addActors', [AdminAuthController::class, 'addActor']);
+        // EDIT ACTOR DETAIL
+        Route::get('/actor/edit/{id}', [AdminAuthController::class, 'showEditActor']);
+        Route::post('/actors/edit/{id}', [AdminAuthController::class, 'editActor']);
+        // DELETE ACTOR
+        Route::get('/actor/remove/{id}', [AdminAuthController::class, 'deleteActor']);
     });
 });

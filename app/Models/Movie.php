@@ -11,11 +11,11 @@ class Movie extends Model
     public $timestamps = false;
 
     public function movieGenres(){
-        return $this->belongsToMany(MovieGenre::class, 'movie_genres');
+        return $this->belongsToMany(Genre::class, 'movie_genres');
     }
 
-    public function movieCharacter(){
-        return $this->belongsToMany(MovieCharacter::class, 'movie_characters');
+    public function actors(){
+        return $this->belongsToMany(Actor::class, 'movie_characters');
     }
 
     public function watchlist(){
