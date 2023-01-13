@@ -33,7 +33,6 @@
                         @foreach ($genre as $genre)
                             <select class="form-select bg-dark text-white mb-3" id="autoSizingSelect" style="border: none;" name="inputGenre[][genre]">
                                 <option value="{{$genre->id}}">{{$genre->name}}</option>
-                                {{-- <option value="" disabled selected>Select an option</option> --}}
                                 @foreach ($genres as $g)
                                     <option value="{{$g->id}}">{{$g->name}}</option>
                                 @endforeach
