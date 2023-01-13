@@ -7,6 +7,7 @@ use App\Models\Actor;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\MovieCharacters;
+use App\Models\MovieGenres;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -230,13 +231,17 @@ class AdminAuthController extends Controller
 
         $background = $request->BackgroundURL->getClientOriginalName();
         $request->BackgroundURL->move(public_path($path), $background);
-        $id = DB::getPdo()->lastInsertId();
 
+        $mc =  MovieCharacters::select('id')
+                ->where('movies_id',$id)
+                ->get();
+        $mcArray = $mc->toArray();
         $actor = $request->input('input.*.actor');
         $character = $request->input('input.*.character');
 
+
         foreach ($request->input as $key => $value) {
-            DB::table('movie_characters')->where('movies_id',$id)
+            DB::table('movie_characters')->where('id',$mcArray[$key])
             ->update([
                 'movies_id'=>$id,
                 'actors_id'=>$actor[$key],
@@ -244,9 +249,14 @@ class AdminAuthController extends Controller
             ]);
         }
 
+        $index =  MovieGenres::select('id')
+                    ->where('movies_id',$id)
+                    ->get();
+        $arrayIndex = $index->toArray();
+
         $genre = $request->input('inputGenre.*.genre');
         foreach($request->inputGenre as $key=>$value){
-            DB::table('movie_genres')->where('movies_id',$id)
+            DB::table('movie_genres')->where('id',$arrayIndex[$key])
             ->update([
                 'movies_id'=>$id,
                 'genres_id'=>$genre[$key]

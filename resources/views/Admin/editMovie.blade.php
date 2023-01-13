@@ -31,21 +31,17 @@
                     <div class="form-group mt-3 wrapper2">
                         <label for="genre">Genre</label>
                         @foreach ($genre as $genre)
-                            <select class="form-select bg-dark text-white mb-3" id="autoSizingSelect" style="border: none;" name="inputGenre[0][genre]">
-                                <option selected value="{{$genre->id}}">{{$genre->name}}</option>
+                            <select class="form-select bg-dark text-white mb-3" id="autoSizingSelect" style="border: none;" name="inputGenre[][genre]">
+                                <option value="{{$genre->id}}">{{$genre->name}}</option>
+                                {{-- <option value="" disabled selected>Select an option</option> --}}
                                 @foreach ($genres as $g)
-                                    @if ($g != $genre)
-                                        <option value="{{$g->id}}">{{$g->name}}</option>
-                                    @endif
+                                    <option value="{{$g->id}}">{{$g->name}}</option>
                                 @endforeach
                             </select>
                             @error('inputGenre[0][genre]')
                                 <small id="descHelp" class="form-text text-danger">{{$message}}</small>
                             @enderror
                         @endforeach
-                    </div>
-                    <div class="d-flex justify-content-end pt-3">
-                        <button type="button" name="add" id="add-btn2" class="btn btn-danger justify-content-end">Add More</button>
                     </div>
                     <h5 style="padding-top: 20px">Actors</h5>
                     <div style="padding-left: 20px">
@@ -55,11 +51,9 @@
                                     <div class="col">
                                         <label for="actor">Actor</label>
                                         <select class="form-select bg-dark text-white mb-3" id="autoSizingSelect" style="border: none;" name="input[0][actor]">
-                                            <option selected value="{{$a->id}}">{{$a->name}}</option>
+                                            <option value="{{$a->id}}">{{$a->name}}</option>
                                             @foreach ($allActor as $ac)
-                                                @if ($ac != $a)
-                                                    <option value="{{$ac->id}}">{{$ac->name}}</option>
-                                                @endif
+                                                <option value="{{$ac->id}}">{{$ac->name}}</option>
                                             @endforeach
                                         </select>
                                         @error('actor')
@@ -68,7 +62,7 @@
                                     </div>
                                     <div class="col">
                                         <label for="characterName">Character Name</label>
-                                        <input type="text" class="form-control bg-dark text-white" aria-label="Last name" id="characterName" style="border: none;" value="{{$a->characterName}}" name="chracter[0][character]">
+                                        <input type="text" class="form-control bg-dark text-white" aria-label="Last name" id="characterName" style="border: none;" value="{{$a->characterName}}" name="input[0][character]">
                                         @error('characterName')
                                             <small id="characterNameHelp" class="form-text text-danger">{{$message}}</small>
                                         @enderror
@@ -123,10 +117,10 @@
                     <div class="row">
                         <div class="col">
                             <label for="actor">Actor</label>
-                            <select class="form-select bg-dark text-white" id="autoSizingSelect" style="border: none;" name="input[`+i+`][actor]">
-                                <option selected><--- Open This Select Menu ---></option>
-                                @foreach ($actors as $a)
-                                    <option value="{{$a->id}}">{{$a->name}}</option>
+                            <select class="form-select bg-dark text-white mb-3" id="autoSizingSelect" style="border: none;" name="input[`+i+`][actor]">
+                                <option value="{{$a->id}}">{{$a->name}}</option>
+                                @foreach ($allActor as $ac)
+                                    <option value="{{$ac->id}}">{{$ac->name}}</option>
                                 @endforeach
                             </select>
                             @error('actor')
@@ -141,18 +135,6 @@
                             @enderror
                         </div>
                     </div>
-                `);
-            });
-
-            $("#add-btn2").click(function(){
-                ++j;
-                $(".wrapper2").append(`
-                        <select class="form-select bg-dark text-white select2 mb-3" id="autoSizingSelect" style="border: none;" name="inputGenre[`+j+`][genre]">
-                            <option value="" disabled selected>Select an option</option>
-                            @foreach ($genres as $g)
-                                <option value="{{$g->id}}">{{$g->name}}</option>
-                            @endforeach
-                        </select>
                 `);
             });
         });
