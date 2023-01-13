@@ -53,12 +53,11 @@ class WatchlistController extends Controller
         $status = $request->status;
         if($status != 'Remove'){
             DB::table('watchlists')
-                ->where('id', $id)
-                ->where('movies_id', $id)
-                ->delete();
+            ->where('users_id', Auth::user()->id)
+            ->where('id', $id)
+            ->update(['status_id'=>$request->status]);
         } else {
-            DB::table('watchlist')
-                ->where('users_id', Auth::user()->id)
+            DB::table('watchlists')
                 ->where('id', $id)
                 ->delete();
         }

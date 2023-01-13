@@ -55,7 +55,7 @@ Route::get('/profile/delete/{id}', [UserController::class, 'deletePhoto']);
 //WATCHLIST
 Route::get('/movie/{id}', [WatchlistController::class, 'addToWatchList']);
 Route::get('/watchlists/{id}', [WatchlistController::class, 'addToWatchList']);
-Route::get('/watchlists/update/{id}', [WatchlistController::class, 'updateStatus']);
+Route::post('/watchlists/update/{id}', [WatchlistController::class, 'updateStatus']);
 Route::get('/watchlist/{id}', [WatchlistController::class, 'viewWatchlist']);
 
 //ADMIN

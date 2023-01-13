@@ -34,7 +34,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{$movieActor->actor_name}}</h5>
                                     <p class="card-text">{{$movieActor->characterName}}</p>
-                                    <a href="/actors/{{$movieActor->id}}" class="stretched-link"></a>
+                                    <a href="/actors/{{$movieActor->actor_id}}" class="stretched-link"></a>
                                 </div>
                             </div>
                     @endforeach

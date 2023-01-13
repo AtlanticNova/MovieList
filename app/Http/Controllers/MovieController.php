@@ -24,7 +24,7 @@ class MovieController extends Controller
         $movieActor = Movie::join('movie_characters', 'movie_characters.movies_id', '=', 'movies.id')
                 ->join('actors', 'actors.id', '=','movie_characters.actors_id')
                 ->where('movies.id',$id)
-                ->get(['movies.*','actors.name AS actor_name', 'movie_characters.characterName', 'actors.imageURL']);
+                ->get(['movies.*','actors.name AS actor_name', 'movie_characters.characterName', 'actors.imageURL','actors.id AS actor_id']);
         $movieGenre = Movie::join('movie_genres', 'movie_genres.movies_id','=','movies.id')
                 ->join('genres', 'genres.id','=','movie_genres.genres_id')
                 ->where('movies.id',$id)
