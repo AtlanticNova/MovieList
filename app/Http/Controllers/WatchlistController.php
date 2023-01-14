@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class WatchlistController extends Controller
 {
-    public function viewWatchlist(Request $request, $user_id){
+    public function viewWatchlist(Requests $request, $user_id){
         $search = $request->search;
         if($search!=""){
             $watchlist = DB::table('watchlists')
@@ -46,7 +46,6 @@ class WatchlistController extends Controller
                     ->join('status', 'status.id', '=', 'watchlists.status_id')
                     ->where('users_id', $user_id)
                     ->paginate(5);
-
         return view('user.watchlist',[
             'watchlist' => $watchlist
         ]);

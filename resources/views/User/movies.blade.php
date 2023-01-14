@@ -40,9 +40,9 @@
                                 </div>
                             </div>
                         @endforeach
+                    @endguest
                 </div>
             </div>
-            @endguest
         </div>
     </content>
 @endsection
