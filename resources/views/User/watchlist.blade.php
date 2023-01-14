@@ -11,6 +11,26 @@
                     <button class="btn btn-dark" type="submit">Search</button>
                 </form>
             </div>
+            <div style="display: flex; flex-direction: row;align-items: center;margin-bottom: 30px">
+                <div style="display:flex; flex-direction: row;justify-content: space-around;align-items: center; padding-right: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filter-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M7 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </div>
+                <div class="pl-3">
+                    <form action="/watchlists/{{Auth::user()->id}}" method="GET" class="d-flex">
+                        @csrf
+                        <select name="sorting" class="form-select bg-dark text-white" aria-label="Default select example" style="max-width:170px;border: none; margin-right:10px;">
+                            <option value="all" selected>All</option>
+                            <option value="1">Planned</option>
+                            <option value="2">Watching</option>
+                            <option value="3">Finished</option>
+                        </select>
+                        <button class="btn btn-danger" type="submit">Sort</button>
+                    </form>
+                </div>
+            </div>
             <div>
                 <table class="table table-dark table-striped align-middle">
                     <tr class="table-dark">

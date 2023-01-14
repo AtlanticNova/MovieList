@@ -8,6 +8,7 @@ use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\MovieCharacters;
 use App\Models\MovieGenres;
+use App\Models\Watchlist;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,9 +29,23 @@ class AdminAuthController extends Controller
                 ->groupBy('movies.title','movies.releaseDate','movies.imageThumbnail', 'movies.id')
                 ->limit(7)
                 ->get();
+        $watchlist = Watchlist::all();
+
         $search = $request->search;
         if($search != ""){
             $movies = Movie::where('title','LIKE',"%{$search}%")->paginate(7);
+        }else{
+            $movies = DB::table('movies')->paginate(7);
+        }
+
+        $sort = $request->sorting;
+
+        if($sort == 'latest'){
+            $movies = DB::table('movies')->orderByDesc('releaseDate')->paginate(7);
+        }else if($sort == 'asc'){
+            $movies = DB::table('movies')->orderBy('title', 'asc')->paginate(7);
+        }else if($sort == 'desc'){
+            $movies = DB::table('movies')->orderByDesc('title')->paginate(7);
         }else{
             $movies = DB::table('movies')->paginate(7);
         }
@@ -38,7 +53,8 @@ class AdminAuthController extends Controller
             'hero' => $hero,
             'genre' => $genre,
             'popular' => $popular,
-            'movies' => $movies
+            'movies' => $movies,
+            'watchlist'=>$watchlist
         ]);
     }
 

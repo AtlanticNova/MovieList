@@ -60,7 +60,7 @@
                     <a href="/genre/{{$genre->id}}"><button type="button active" class="btn btn-dark">{{$genre->name}}</button></a>
                 @endforeach
             </div>
-            <div class="p-3" style="display: flex; flex-direction: row;align-items: center;">
+            <div class="pt-3" style="display: flex; flex-direction: row;align-items: center;">
                 <div style="display:flex; flex-direction: row;justify-content: space-around;align-items: center; padding-right: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filter-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -69,14 +69,15 @@
                     <h6 class="ml-3" style="padding-left: 10px">Sort By</h6>
                 </div>
                 <div class="pl-3">
-                    <form action="" method="POST">
+                    <form action="/admin/dashboard" method="GET" class="d-flex">
                         @csrf
-                        <select class="form-select" aria-label="Default select example" style="max-width:170px" wire:model="sorting">
-                            <option selected>Default</option>
+                        <select name="sorting" class="form-select" aria-label="Default select example" style="max-width:170px">
+                            <option value="default" selected>Default</option>
                             <option value="latest">Latest</option>
                             <option value="asc">A-Z</option>
                             <option value="desc">Z-A</option>
                         </select>
+                        <button class="btn btn-dark" type="submit">Sort</button>
                     </form>
                 </div>
             </div>

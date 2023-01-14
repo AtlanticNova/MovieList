@@ -30,6 +30,23 @@ class WatchlistController extends Controller
                         ->paginate(5);
         }
 
+        $sort = $request->sorting;
+
+        if($sort != 'all'){
+            $watchlist = DB::table('watchlists')
+                        ->select('movies.*','watchlists.status_id','watchlists.id AS w_id', 'status.status')
+                        ->join('movies', 'movies.id', '=','watchlists.movies_id')
+                        ->join('status', 'status.id', '=', 'watchlists.status_id')
+                        ->where('status.id', $sort)
+                        ->paginate(5);
+        }
+        $watchlist = DB::table('watchlists')
+                    ->select('movies.*','watchlists.status_id','watchlists.id AS w_id', 'status.status')
+                    ->join('movies', 'movies.id', '=','watchlists.movies_id')
+                    ->join('status', 'status.id', '=', 'watchlists.status_id')
+                    ->where('users_id', $user_id)
+                    ->paginate(5);
+
         return view('user.watchlist',[
             'watchlist' => $watchlist
         ]);
